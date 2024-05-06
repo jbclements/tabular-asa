@@ -291,3 +291,12 @@ All rights reserved.
    (table-with-column
     (table-with-column empty-table '() #:as 'a)
     '() #:as 'b)))
+
+(check-equal?
+ (sequence->list
+  (table-column
+   (table-with-column
+    (table-with-column empty-table '() #:as 'a)
+    '() #:as 'b)
+   'b))
+ '())

@@ -113,7 +113,7 @@ All rights reserved.
 
       ; create a new data vector using the existing index
       (let* ([max-idx
-              (cond [(= (vector-length (table-index df)) 0) 0]
+              (cond [(= (vector-length (table-index df)) 0) -1]
                     [else (vector-argmax identity (table-index df))])]
              [v (make-vector (+ max-idx 1) #f)])
         (for ([i (table-index df)] [x seq])
