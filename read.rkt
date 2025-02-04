@@ -199,11 +199,9 @@ All rights reserved.
          ; parse cells, look for n/a as well
          [parse-row (λ (r)
                       (for/list ([x r])
-                        (let ([n (string->number x)])
-                          (cond
-                            [n n]
-                            [(member x na-values string-ci=?) na]
-                            [else x]))))])
+                        (cond
+                          [(member x na-values string-ci=?) na]
+                          [else x])))])
 
     ; read each row into a new table
     (table-read/sequence (csv-map parse-row next-row) columns)))
